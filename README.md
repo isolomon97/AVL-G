@@ -14,7 +14,6 @@ You should be familiar with the following basic definitions of a binary tree:
 * **Balance** of a node
     * The balance of a node is defined by convention as the height of its **left** subtree minus the height of its **right** subtree.
 
-***TODO: Add diagram and example of imbalance***
 
 The following figure shows an imbalance detected after an insertion into an AVL-1 tree (“classic” AVL tree). The imbalance is detected at the node that contains the key 40 and is equal to -2. If instead we had an AVL-2 tree, this insertion would not have triggered a rotation, since -2 is an admissible balance metric for AVL-2 trees! 
 
@@ -25,9 +24,7 @@ graph TD;
 20 --> 40;
 40 --> 45;
 45 --> 42;
-40 --> -2;
 style 40 fill:#f9f,stroke:#333,stroke-width:4px
-style -2 fill:#fff,stroke-width:0px
 ```
 
 ## Starter Code and Git
