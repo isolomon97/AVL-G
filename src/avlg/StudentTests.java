@@ -4,6 +4,8 @@ import org.junit.Test;
 import avlg.exceptions.EmptyTreeException;
 import avlg.exceptions.InvalidBalanceException;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 import static org.junit.Assert.*;
@@ -85,7 +87,7 @@ public class StudentTests {
         assertEquals("In an AVL-2 tree with four descending order integers inserted, " +
                 "the new height was not the expected one.", 2, tree.getHeight()); // Height of 2 expected
     }
-    
+
     
     /* In class, we mentioned an interesting special case of deletion. Namely, when we delete from a subtree and it 
      * turns out that we have to balance, to determine which kind of rotation we have to do, we have to check the balance
@@ -144,7 +146,7 @@ public class StudentTests {
      * implementations. You can easily generalize this test (and the next) to higher-order AVL Trees with another for loop
      * that iterates over several imbalance parameters.
      */
-    @Test
+   @Test
     public void testEnsureBST() throws InvalidBalanceException {
         tree = new AVLGTree<>(3);
         for(int i = 0; i < NUMS; i++)
@@ -165,5 +167,51 @@ public class StudentTests {
             tree.insert(r.nextInt());
         assertTrue("After inserting " + NUMS + " - many random elements, it was determined that our AVL-3 tree" +
                 " did not satisfy the AVL-3 property!", tree.isAVLGBalanced());
+    }
+
+    @Test
+    public void myTree() throws InvalidBalanceException, EmptyTreeException{
+
+        Random rnd = new Random();
+        rnd.setSeed(10);
+
+        tree = new AVLGTree<>(1);
+
+        ArrayList<Integer> stuff = new ArrayList<>();
+
+
+        for (int i = 0; i<1000; i++){
+            stuff.add(i);
+        }
+
+        Collections.shuffle(stuff, rnd);
+
+
+
+
+
+
+        for (int i = 0; i<stuff.size(); i++){
+            tree.insert(stuff.get(i));
+        }
+
+        for (int i=0; i< 999; i++){
+            tree.delete(i);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
